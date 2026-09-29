@@ -8,7 +8,7 @@ from typing import Optional
 
 import requests
 
-from scihub_cn.models import PaperDetailDescription
+from .models import PaperDetailDescription
 
 
 def translate(content: str, proxy=None) -> str:

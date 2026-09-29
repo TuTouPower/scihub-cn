@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from scihub_cn.models import PaperInfo
-from scihub_cn.scihub import SciHub
+from .models import PaperInfo
+from .scihub import SciHub
 
 
 def test_api_with_proxy():

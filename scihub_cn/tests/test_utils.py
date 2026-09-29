@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from scihub_cn.utils import split_description, translate
+from .utils import split_description, translate
 
 
 def test_split_description():

@@ -21,11 +21,11 @@ import bibtexparser
 import requests
 from bs4 import BeautifulSoup
 
-from scihub_cn.exceptions import ArgumentsError, VerificationError, ScholarConf
-from scihub_cn.models import SearchEngine, DownLoadSetting, DownLoadCommandSetting, DownLoadCommandFileSetting, \
+from .exceptions import ArgumentsError, VerificationError, ScholarConf
+from .models import SearchEngine, DownLoadSetting, DownLoadCommandSetting, DownLoadCommandFileSetting, \
     PaperInfo, PaperDetailDescription
 # log config
-from scihub_cn.utils import translate, split_description
+from .utils import translate, split_description
 
 logging.basicConfig()
 logger = logging.getLogger('Sci-Hub')
@@ -409,6 +409,8 @@ class SciHub(object):
             # verify=False is dangerous but sci-hub.io requires intermediate certificates to verify
             # and requests doesn't know how to download them. as a hacky fix, you can add them to your store
             # and verifying would work. will fix this later.
+            print(f"paper_info.url: {paper_info.url}")
+            print(f"self.base_url: {self.base_url}")
             res = self.sess.request(method='GET', url=self.base_url + paper_info.url if not paper_info.url.startswith(
                 "http") else paper_info.url, verify=True, proxies=self.proxies)
 
